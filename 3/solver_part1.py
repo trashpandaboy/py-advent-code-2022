@@ -36,3 +36,34 @@ Find the item type that appears in both compartments of each rucksack. What is t
 
 
 '''
+
+f = open("input.txt","r")
+lines = f.readlines()
+
+total = 0
+for line in lines:
+    firstpart, secondpart = line[:len(line)//2], line[len(line)//2:]
+    lenght = len(firstpart)
+
+    valueOfCommon = 0
+    charInCommon = ''
+    for i in range(lenght):
+        if firstpart.__contains__(secondpart[i]):
+            charInCommon = secondpart[i]
+        elif secondpart.__contains__(firstpart[i]):
+            charInCommon = firstpart[i]
+        
+        if charInCommon != '':
+            break
+
+    charInCommon: str
+    if charInCommon.islower():
+        valueOfCommon = ord(charInCommon) - 96
+    else:
+        valueOfCommon = ord(charInCommon) - 38
+
+    total += valueOfCommon
+
+print(total)
+
+    
