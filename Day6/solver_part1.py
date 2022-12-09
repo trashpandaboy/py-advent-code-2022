@@ -35,13 +35,10 @@ How many characters need to be processed before the first start-of-packet marker
 '''
 
 def hasOnlyUniqueChar(strVal):
-    onlyUnique = True
     for char in strVal:
         if strVal.count(char) > 1:
-            onlyUnique = False
-            return onlyUnique
-
-    return onlyUnique
+            return False
+    return True
 
 f = open("input.txt","r")
 line = f.readline()
